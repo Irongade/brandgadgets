@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 // styles
 import { Button, Container, Main, GridContainer } from '../styles/globalStyles';
 
 import { ButtonContainer, CheckoutContainer, PaymentModalTitle, CustomerDetailsContainer, CustomerDetailsDiv, CustomerDetailsText, CustomerInputContainer, OrderDetailsContainer, CheckoutGridContainer} from '../styles/checkoutStyles';
+
+import { PaymentModalContainer, } from '../styles/checkoutStyles';
 
 // components
 import Header from '../components/Header';
@@ -19,6 +21,11 @@ import Alert from '../components/Alert';
 import Footer from '../components/Footer'
 
 const Checkout = () => {
+
+    const [showPaymentModal, setShowPaymentModal] = useState(false)
+    const [showAlertModal, setShowAlertModal] = useState(false)
+
+
     return (
         <>
         <Header noBoxShadow={true} />
@@ -83,7 +90,7 @@ const Checkout = () => {
                         <Orders />
 
                         <ButtonContainer mt="3rem">
-                            <Button fluid> Continue </Button>
+                            <Button fluid onClick={() => setShowPaymentModal(true)}> Continue </Button>
                         </ButtonContainer>
                     </OrderDetailsContainer>
                 </CheckoutContainer>
@@ -91,7 +98,7 @@ const Checkout = () => {
         </Main>
         <Footer />
 
-        {/* <Modal> 
+        <Modal modal={showPaymentModal} setShowModal={setShowPaymentModal}> 
             <PaymentModalTitle>
                 Make Payment
             </PaymentModalTitle>
@@ -103,10 +110,13 @@ const Checkout = () => {
                 <TextInput halfWidth label="CVV" placeholderText="Placeholder" />
             </PaymentModalContainer>
             <ButtonContainer mt="1rem">
-                <Button fluid> Continue </Button>
+                <Button fluid onClick={() => { 
+                    setShowPaymentModal(false)
+                    setShowAlertModal(true)
+                }}> Continue </Button>
             </ButtonContainer>
-        </Modal> */}
-        {/* <Alert /> */}
+        </Modal>
+        <Alert modal={showAlertModal} setShowModal={setShowAlertModal} />
     </>
     )
 }

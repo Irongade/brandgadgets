@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router'
 
 // styles
 import { Container, Main, Button} from '../styles/globalStyles';
@@ -18,6 +19,17 @@ import Orders from '../components/Orders';
 import Footer from '../components/Footer'
 
 const Cart = () => {
+    const router = useRouter()
+
+      const goHome = () => {
+        router.push('/')
+      }
+
+      const goToCheckout = () => {
+        router.push('/checkout')
+      }
+
+
     return (
         <>
         <Header noBoxShadow={true} />
@@ -36,10 +48,10 @@ const Cart = () => {
                     <YourOrdersContainer>
                         <Orders />
                         <ButtonContainer mt="3rem">
-                            <Button halfWidth secondary>
+                            <Button halfWidth secondary onClick={goHome}>
                                 Continue Shopping
                             </Button>
-                            <Button halfWidth>
+                            <Button halfWidth onClick={goToCheckout}>
                                 Check Out
                             </Button>
                         </ButtonContainer>

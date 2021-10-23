@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -25,17 +25,22 @@ import {ReactComponent as MinusLogo} from '../assets/svgs/Minus.svg'
 
 
 const ProductItem = () => {
+
+    const [quantity, setQuantity] = useState(0)
+
     return (
-        <Link href="/products/22" passHref>
             <ProductItemContainer>
                 <ProductItemImageContainer>
                     <Image src={Product} alt={'product image'} />
                 </ProductItemImageContainer>
 
                 <ProductItemDetailsContainer>
-                    <ProductItemName>
+                    <Link href="/products/22" passHref>
+                        <ProductItemName>
                         Bella+Canvas Unisex Jersey T-Shirt 
                     </ProductItemName>
+                    </Link>
+
                     <ProductItemPrice>
                         N1500 - N2500
                     </ProductItemPrice>
@@ -49,18 +54,17 @@ const ProductItem = () => {
                     <Button> Add to Cart </Button>
 
                     <ProductItemButtonDiv>
-                        <DecrementButton>  <MinusLogo /> </DecrementButton>
+                        <DecrementButton onClick={() => setQuantity(() => quantity > 0 ? quantity - 1 : 0)}>  <MinusLogo /> </DecrementButton>
                         <ProductItemCount> 
                             <ProductItemCountText>
-                                0
+                                {quantity}
                             </ProductItemCountText>  
                         </ProductItemCount>
-                        <IncrementButton> <PlusLogo /> </IncrementButton>
+                        <IncrementButton onClick={() => setQuantity(quantity + 1)}> <PlusLogo /> </IncrementButton>
                     </ProductItemButtonDiv>
                 </ProductItemButtonContainer>
 
             </ProductItemContainer>
-        </Link>
     )
 }
 

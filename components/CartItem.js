@@ -1,5 +1,7 @@
 import React from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
+import { useRouter } from 'next/router'
+
 import { 
     CartItemContainer, 
     CartInfoContainer, 
@@ -26,6 +28,17 @@ import CheckBox from './CheckBox';
 import { Button } from '../styles/globalStyles';
 
 const CartItem = () => {
+    const router = useRouter()
+
+      const editProduct = () => {
+        router.push('/products/22')
+      }
+
+      const customizeProduct = () => {
+        router.push('/products/22/customize')
+      }
+
+
     return (
         <CartItemContainer>
             <CheckBox />
@@ -62,8 +75,8 @@ const CartItem = () => {
                         </CartQuantityDiv>
 
                         <CartButtonDiv>
-                            <Button fluid secondary marginRight> Edit </Button>
-                            <Button fluid > Customize </Button>
+                            <Button fluid secondary marginRight onClick={editProduct}> Edit </Button>
+                            <Button fluid onClick={customizeProduct}> Customize </Button>
                         </CartButtonDiv>
                     </CartProductDiv>
                 </CartDetailsContainer>

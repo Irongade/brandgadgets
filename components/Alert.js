@@ -5,9 +5,9 @@ import { AlertLogoDiv, AlertModalContainer, AlertModalText, AlertModalTitle } fr
 
 import {ReactComponent as SuccessLogo} from '../assets/svgs/Success.svg'
 
-const Alert = () => {
+const Alert = ({modal, setShowModal}) => {
     return (
-        <Modal>
+        <Modal modal={modal} setShowModal={setShowModal}>
             <AlertModalContainer>
                 <AlertLogoDiv>
                     <SuccessLogo />

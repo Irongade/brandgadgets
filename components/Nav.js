@@ -15,7 +15,7 @@ const Nav = () => {
                     </button>
                 </Menu>
             <NavDiv menu>
-                <Link href='/' passHref><NavText> Get Quote </NavText></Link>
+                <Link href='/request-form' passHref><NavText> Get Quote </NavText></Link>
                 <Link href='/order-tracking' passHref><NavText noMargin> Track Order </NavText></Link>
 
             </NavDiv>
