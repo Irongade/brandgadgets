@@ -1,5 +1,6 @@
 import styled, {css} from 'styled-components';
 import { Text } from './globalStyles';
+import { breakpoints } from './utilStyles';
 
 export const ModalContainer = styled.div`
     position: fixed;
@@ -44,6 +45,11 @@ export const ModalWrapper = styled.div`
     transform: scale(0.6);
     transition: opacity 250ms 250ms ease, transform 300ms 250ms ease;
     transform: scale(0);
+
+    ${breakpoints("padding", "", [
+        { 700: '2rem' },
+    ])};
+
     ${
         props => props.visible && css`
             opacity: 1;
@@ -80,6 +86,15 @@ export const DropDownModal = styled.div`
             transition: opacity 50ms 300ms ease, transform 100ms 300ms ease;
         `
     }
+
+
+    ${breakpoints("left", "", [
+        { 1159: '-5rem' },
+        { 850: '-7rem' },
+        { 686: '-9rem' },
+        { 500: '-11rem' },
+        { 380: '-13rem' },
+    ])};
 
 `
 

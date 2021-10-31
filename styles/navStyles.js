@@ -9,9 +9,24 @@ export const NavContainer = styled.div`
     align-items: center;
     padding: 0 3rem;
 
-    ${breakpoints("padding", "", [
-        { 500: '0 1rem' },
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+
+    ${breakpoints("align-items", "", [
+        { 500: 'flex-start' },
     ])};
+
+    ${breakpoints("padding", "", [
+        { 500: '0.5rem 1rem' },
+    ])};
+
+    ${ props => props.visible && css`
+        ${breakpoints("height", "", [
+            { 500: '10vh' },
+        ])};
+    `}
+    
 `
 
 export const NavDiv = styled.div`
@@ -20,12 +35,16 @@ export const NavDiv = styled.div`
     justify-content: space-between;
 
     ${
-        props => props.menu && css`
+        props => props.menu && !props.visible && css`
             ${breakpoints("display", "", [
                 { 500: 'none' },
             ])};
         `
     }
+
+    ${ props => props.dropdown && css`
+        flex-direction: column; 
+    `}
 `
 
 export const NavText = styled.p`
@@ -39,6 +58,11 @@ export const NavText = styled.p`
 
     ${ props => props.noMargin && css`
         margin: 0;        
+    `}
+
+    ${ props => props.dropdownText && css`
+        font-size: ${props => props.theme.fontSizes.md};  
+        margin-top: .25rem;     
     `}
 `
 
@@ -62,5 +86,8 @@ export const Menu = styled.div`
 
     ${breakpoints("display", "", [
         { 500: 'flex' },
+    ])};
+    ${breakpoints("flex-direction", "", [
+        { 500: 'column' },
     ])};
 `

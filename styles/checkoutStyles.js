@@ -61,6 +61,16 @@ export const PaymentModalContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    ${breakpoints("flex-direction", "", [
+        { 700: 'column' },
+    ])};
+
+    & div {
+        ${breakpoints("width", "", [
+            { 700: '100%' },
+        ])};
+    }
 `
 
 export const CheckoutGridContainer = styled(GridContainer)`

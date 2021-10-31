@@ -25,13 +25,16 @@ export const HeaderSection = styled.div`
     align-items: center;
     padding: 0 3rem;
     background: ${props => props.theme.colors.white};
+    margin-top: 5vh; //  handle this with redux
+
 
     ${breakpoints("flex-direction", "", [
-        { 500: 'column' },
+        { 852: 'column' },
+        // { 550: 'column' },
     ])};
 
     ${breakpoints("height", "", [
-        { 500: '20vh' },
+        { 852: '20vh' },
     ])};
 
     ${breakpoints("flex", "", [
@@ -45,6 +48,12 @@ export const HeaderSection = styled.div`
 
     ])};
     
+    ${
+        props => props.visible && css`
+            margin-top: 15vh;
+    
+        `
+    }
 `
 
 export const HeaderLogoContainer = styled.div`
@@ -54,6 +63,9 @@ export const HeaderLogoContainer = styled.div`
     align-items: center;
     width: 100%;
 
+    ${breakpoints("margin-top", "", [
+        { 852: '.5rem' },
+    ])}; 
 `
 export const HeaderLogoIconDiv = styled.div`
     display: none;
@@ -62,7 +74,7 @@ export const HeaderLogoIconDiv = styled.div`
     width: 20%;
 
     ${breakpoints("display", "", [
-        { 500: 'flex' },
+        { 852: 'flex' },
     ])};
 `
 
@@ -77,7 +89,7 @@ export const HeaderSearchContainer = styled.div`
     ])};
 
     ${breakpoints("margin-top", "", [
-        { 500: '.5rem' },
+        { 852: '.75rem' },
     ])};    
 `
 
@@ -146,7 +158,7 @@ export const HeaderIconContainer = styled.div`
     align-items: center;
 
     ${breakpoints("display", "", [
-        { 500: 'none' },
+        { 852: 'none' },
     ])};
    
 `

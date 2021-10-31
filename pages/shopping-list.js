@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image'
 
 // styles
-import { Button, Container, Flex, GridContainer } from '../styles/globalStyles';
-import { ShoppingListContainer, ListContainer, ShoppingItemContainer, ShoppingItemImageDiv, ShoppingItemDiv, ShoppingItemText, ShoppingTotalDiv } from '../styles/shoppingListStyles';
+import { Button, Container, Flex, GridContainer, Main } from '../styles/globalStyles';
+import { ShoppingListContainer, ListContainer, ShoppingItemContainer, ShoppingItemImageDiv, ShoppingItemDiv, ShoppingItemText, ShoppingTotalDiv, ShoppingItemGridContainer, ShoppingItemTextDiv } from '../styles/shoppingListStyles';
 
 // components
 import Header from '../components/Header';
@@ -35,40 +35,40 @@ const ShoppingList = () => {
     return (
         <>
             <Header noBoxShadow={true} />
-            <main style={{marginTop: '20vh'}}>
+            <Main>
                 <Container>
                     <PageHeader title={'Shopping List'} />
                     <ShoppingListContainer>
                         <ListContainer>
                             <BaseCard title="Christmas Shopping List">
-                                <GridContainer columns="1fr 1fr" gap="1rem">
+                                <ShoppingItemGridContainer columns="1fr 1fr" gap="1rem">
                                     <ShoppingItem />
                                     <ShoppingItem />
                                     <ShoppingItem />
                                     <ShoppingItem />
                                     <ShoppingItem />
                                     <ShoppingItem />
-                                </GridContainer>
+                                </ShoppingItemGridContainer>
 
                                 <ShoppingTotalDiv>
-                                        <Flex mt="1rem" w="25%" spaceBetween>
+                                        <ShoppingItemTextDiv mt="1rem" w="25%" spaceBetween>
                                             <ShoppingItemText bold>
                                                 Total Amount 
                                             </ShoppingItemText>
                                             <ShoppingItemText bold>
                                                 N200,000.00
                                             </ShoppingItemText>
-                                        </Flex>
-                                        <Flex mt="1rem" w="20%">
+                                        </ShoppingItemTextDiv>
+                                        <ShoppingItemTextDiv mt="1rem" w="20%">
                                             <Button fluid secondary> Re-Order </Button>
-                                        </Flex>
+                                        </ShoppingItemTextDiv>
                                 </ShoppingTotalDiv>
                             
                             </BaseCard>
                         </ListContainer>
                     </ShoppingListContainer>
                 </Container>
-            </main>
+            </Main>
             <Footer />   
         </>
     )

@@ -1,7 +1,7 @@
 import React from 'react'
 
 // styles
-import { Button, Container, Flex, GridContainer } from '../styles/globalStyles';
+import { Button, Container, Main, GridContainer } from '../styles/globalStyles';
 import { OrderTrackingContainer } from '../styles/orderTrackingStyles';
 
 // components
@@ -16,7 +16,7 @@ const OrderTracking = () => {
     return (
         <>
               <Header noBoxShadow={true} />
-            <main style={{marginTop: '20vh'}}>
+            <Main>
                 <Container>
                     <PageHeader title={'Order Tracking'} />
                     <OrderTrackingContainer>
@@ -29,7 +29,7 @@ const OrderTracking = () => {
                         </BaseCard>
                     </OrderTrackingContainer>
                 </Container>
-            </main>
+            </Main>
             <Footer />   
         </>
     )

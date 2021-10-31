@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components";
-import { Text } from "./globalStyles";
+import { Text, GridContainer, Flex } from "./globalStyles";
+import { breakpoints } from "./utilStyles";
 
 export const ShoppingListContainer = styled.div`
     display: flex;
@@ -11,6 +12,11 @@ export const ShoppingListContainer = styled.div`
 export const ListContainer = styled.div`
     display: block;
     width: 70%;
+
+    ${breakpoints("width", "", [
+        { 700: '100%' },
+    ])};
+
 `
 
 export const ShoppingItemContainer = styled.div`
@@ -18,7 +24,6 @@ export const ShoppingItemContainer = styled.div`
     align-items: center;
     border: 1px solid #E3E5E8;
     border-radius: .5rem;
-    
 `
 
 export const ShoppingItemImageDiv = styled.div`
@@ -46,4 +51,25 @@ export const ShoppingTotalDiv = styled.div`
     width: 100%;
     align-items: flex-end;
 
+    ${breakpoints("align-items", "", [
+        { 700: 'flex-start' },
+    ])};
+`
+export const ShoppingItemGridContainer = styled(GridContainer)`
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+
+    ${breakpoints("grid-template-columns", "", [
+        { 700: '1fr' },
+    ])};
+`
+
+export const ShoppingItemTextDiv = styled(Flex)`
+    width: 25%;
+
+    ${breakpoints("width", "", [
+        { 1270: '40%' },
+        { 880: '60%' },
+        { 700: '100%' },
+    ])};
 `

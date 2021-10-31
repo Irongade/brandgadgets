@@ -1,23 +1,29 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link'
 
 // import { Container } from '../styles/globalStyles'
 import { NavContainer, NavDiv, NavText, Menu } from '../styles/navStyles'
 
-const Nav = () => {
+const Nav = ({visible, setVisible}) => {
+    // const [visible, setVisible] = useState(false)
     return (
-        <NavContainer>
+        <NavContainer visible={visible}>
             <Menu>
+                    {/* <button onClick={() => setVisible(!visible)}> */}
                     <button>
                         <span></span>
                         <span></span>
                         <span></span>
                     </button>
-                </Menu>
+
+                <NavDiv menu dropdown visible={visible}>
+                    <Link href='/request-form' passHref><NavText dropdownText> Get Quote </NavText></Link>
+                    <Link href='/order-tracking' passHref><NavText dropdownText> Track Order </NavText></Link>
+                </NavDiv>
+            </Menu>
             <NavDiv menu>
                 <Link href='/request-form' passHref><NavText> Get Quote </NavText></Link>
                 <Link href='/order-tracking' passHref><NavText noMargin> Track Order </NavText></Link>
-
             </NavDiv>
 
             <NavDiv>

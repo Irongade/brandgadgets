@@ -36,7 +36,7 @@ const Checkout = () => {
 
                     <CustomerDetailsContainer>
                         <BaseCard marginBottom="2rem" title="Customer Details">
-                            <CheckoutGridContainer columns="1fr 1fr" gap="1rem" responsive={[{700: '1fr'}]}>
+                            <CheckoutGridContainer columns="1fr 1fr" gap="1rem">
                                 <TextInput label="First Name" placeholderText="Placeholder" />
                                 <TextInput label="First Name" placeholderText="Placeholder" />
                                 <TextInput label="First Name" placeholderText="Placeholder" />
@@ -49,16 +49,16 @@ const Checkout = () => {
                         </BaseCard>
 
                         <BaseCard marginBottom="2rem" title="Shipping Address">
-                            <GridContainer rows="1fr 1fr" columns="1fr 1fr" gap="1rem">
+                            <CheckoutGridContainer rows="1fr 1fr" columns="1fr 1fr" gap="1rem">
                                 <TextInput label="Address" placeholderText="Placeholder" />
                                 <SelectInput label="City" placeholderText="Placeholder" />
                                 <SelectInput label="State" placeholderText="Placeholder" />
                                 <SelectInput label="Country" placeholderText="Placeholder" />
-                            </GridContainer>
+                            </CheckoutGridContainer>
                         </BaseCard>
 
                         <BaseCard marginBottom="2rem" title="Payment Method">
-                            <GridContainer rows="1fr" columns="1fr 1fr" gap="1rem">
+                            <CheckoutGridContainer rows="1fr" columns="1fr 1fr" gap="1rem">
                                 <CustomerDetailsDiv>
                                     <Radio text="Debit Card" name="payment" />
                                     <CustomerDetailsText> Make payment with your bank debit card </CustomerDetailsText>
@@ -67,11 +67,11 @@ const Checkout = () => {
                                     <Radio text="Cash Transfer" name="payment" />
                                     <CustomerDetailsText> Make Payment through bank transfer </CustomerDetailsText>
                                 </CustomerDetailsDiv>
-                            </GridContainer>
+                            </CheckoutGridContainer>
                         </BaseCard>
 
                         <BaseCard marginBottom="2rem" title="Delivery Method">
-                            <GridContainer rows="1fr" columns="1fr 1fr" gap="1rem">
+                            <CheckoutGridContainer rows="1fr" columns="1fr 1fr" gap="1rem">
                                 <CustomerDetailsDiv>
                                     <Radio text="Pickup" name="delivery" />
                                     <CustomerDetailsText> For this method of delivery you have to go and pick up your order in person </CustomerDetailsText>
@@ -80,7 +80,7 @@ const Checkout = () => {
                                     <Radio text="Door Delivery" name="delivery" />
                                     <CustomerDetailsText> For this method of delivery your order will be delivered to your doorstep </CustomerDetailsText>
                                 </CustomerDetailsDiv>
-                            </GridContainer>
+                            </CheckoutGridContainer>
                         </BaseCard>
 
                         <TextAreaInput rows="5" label="Additional Note (Optional)" placeholderText="Placeholder" />

@@ -16,13 +16,15 @@ export const BannerContainer = styled.div`
       ])};
 
       ${breakpoints("margin-top", "", [
-        { 900: '18vh' },
-        { 700: '25vh' },
+        { 852: '25vh' },
+        // { 750: '30vh' },
 
       ])};
 
       ${breakpoints("height", "", [
         { 900: '100vh' },
+        { 750: '110vh' },
+        { 500: '100vh' },
       ])};
 `
 

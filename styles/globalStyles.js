@@ -217,6 +217,10 @@ export const TextInputContainer = styled.div`
     height: auto;
     margin-bottom: 1rem;
 
+    ${breakpoints("margin-bottom", "", [
+        { 600: '0rem' },
+    ])};
+
     ${
         props => props.halfWidth && css`
             width: 48%;
@@ -298,6 +302,10 @@ export const SelectInputContainer = styled.div`
     height: fit-content;
     position: relative;
     margin-bottom: 1rem;
+
+    ${breakpoints("margin-bottom", "", [
+        { 600: '0rem' },
+    ])};
 
     ${
         props => props.halfWidth && css`

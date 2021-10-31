@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Flex, Text, IncrementButton, DecrementButton} from '../styles/globalStyles'
 import Slider from "react-slick";
 
@@ -15,6 +15,8 @@ import {ReactComponent as PlusLogo} from '../assets/svgs/plus.svg'
 import {ReactComponent as MinusLogo} from '../assets/svgs/Minus.svg'
 
 const SizeBar = () => {
+    const [size, setSize] = useState(0)
+
     return (
         <Flex spaceBetween>
             <Flex w="35%" alignStretch>
@@ -27,13 +29,13 @@ const SizeBar = () => {
             <Flex w="60%">
                 <BaseCard halfPadding>
                     <Flex spaceBetween>
-                        <DecrementButton h="2.5rem">  <MinusLogo /> </DecrementButton>
+                        <DecrementButton h="2.5rem" onClick={() => setSize(() => size > 0 ? size - 1 : 0)}>  <MinusLogo /> </DecrementButton>
                             <ProductItemCount> 
                                 <ProductItemCountText>
-                                    0
+                                    {size}
                                 </ProductItemCountText>  
                             </ProductItemCount>
-                            <IncrementButton h="2.5rem"> <PlusLogo /> </IncrementButton>
+                            <IncrementButton h="2.5rem" onClick={() => setSize(size + 1)}> <PlusLogo /> </IncrementButton>
                     </Flex>
                 </BaseCard>
             </Flex>

@@ -34,6 +34,7 @@ const Header = ({noBoxShadow}) => {
     const router = useRouter()
 
     const [showModal, setShowModal] = useState(false);
+    const [visibleNav, setVisibleNav] = useState(false) //  handle this with redux and pass to banner styles and use handle resize hook to set it to false on bigger screens automatically
 
     const goToLogin = () => {
         setShowModal(false);
@@ -55,19 +56,26 @@ const Header = ({noBoxShadow}) => {
 
     return (
         <HeaderContainer noBoxShadow={noBoxShadow}>
-        <Nav />
-        <HeaderSection>
+        <Nav visible={visibleNav} setVisible={setVisibleNav} />
+        <HeaderSection visible={visibleNav}>
             <HeaderLogoContainer>
                 <Link href="/" passHref><BrandLogo /></Link>
 
                 <HeaderLogoIconDiv>
-                    <HeaderIconDiv>
+                    <HeaderIconDiv relative onClick={() => setShowModal(!showModal)}>
                         <UserLogo />
+
+                        <DropDownModal visible={showModal}>
+                        <DropDownModalText onClick={goToLogin}> Sign In </DropDownModalText>
+                        <Button fluid  onClick={goToSignUp} > Sign Up</Button>
+                    </DropDownModal>
                     </HeaderIconDiv>
 
-                    <HeaderIconDiv>
-                        <CartLogo />
-                    </HeaderIconDiv>
+                    <Link href="/cart" passHref>
+                        <HeaderIconDiv>
+                            <CartLogo />
+                        </HeaderIconDiv>
+                    </Link>
                 </HeaderLogoIconDiv>
             </HeaderLogoContainer>
 
